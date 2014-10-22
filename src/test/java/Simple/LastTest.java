@@ -13,6 +13,6 @@ public class LastTest {
         int a=2;
         int b=3;
         Sum summa = new Sum();
-        Assert.assertTrue(a + b == summa.sum(a,b));
+        Assert.assertEquals(a + b +3, summa.sum(a,b));
     }
 }
