@@ -5,8 +5,10 @@
     <parameter name="expectedCount" value="2"/>
 
     <test name="SmokeTest">
+        <parameter name = "Email" value="ruslan.r@gmail.com"/>
+        <parameter name = "IncorrectEmail" value="ruslan.gmail.com"/>
         <classes>
-            <class name="Simple.LastTest" />
+            <class name="Simple.EmailTest" />
         </classes>
     </test>
 </suite>
