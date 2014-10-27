@@ -1,0 +1,14 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="firstTestSuite" verbose="1" >
+    <parameter name="expectedCount" value="2"/>
+
+    <test name="SmokeTest">
+        <parameter name = "Email" value="ruslan.r@gmail.com"/>
+        <parameter name = "IncorrectEmail" value="ruslan.gmail.com"/>
+        <classes>
+            <class name="Simple.Lesson4" />
+        </classes>
+    </test>
+</suite>
