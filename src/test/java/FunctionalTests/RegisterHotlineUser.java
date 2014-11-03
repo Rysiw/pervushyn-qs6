@@ -15,7 +15,6 @@ public class RegisterHotlineUser  {
     public Object[][] registerData() {
         return new Object[][] {
                 new Object[] {"user1@gmail.com","user1","Qwerty123","Qwerty123"},
-                new Object[] {"user2@gmail.com","user2","Asdfg321"},
         };
     }
 

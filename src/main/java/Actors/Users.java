@@ -5,7 +5,7 @@ package actors;
  */
 public class Users {
     public String email;
-    public String nickName;
+    public String regName;
     public String password;
 
 
