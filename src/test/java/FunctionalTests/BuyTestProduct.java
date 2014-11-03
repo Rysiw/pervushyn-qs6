@@ -1,9 +1,9 @@
-package FunctionalTests;
+package functionalTests;
 
-import Actors.Users;
-import InternetShop.BusketPage;
-import InternetShop.HomePage;
-import InternetShop.LoginRegisterPage;
+import actors.Users;
+import internetShop.BasketPage;
+import internetShop.HomePage;
+import internetShop.LoginRegisterPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,13 +19,13 @@ public class BuyTestProduct {
         HomePage homePage = new HomePage();
         homePage.addToBasket(product);
         homePage.openBasket();
-        BusketPage busketPage = new BusketPage();
-        busketPage.buy();
-        if (busketPage.isBuySucess()){
+        BasketPage basketPage = new BasketPage();
+        basketPage.buy();
+        if (basketPage.isBuySuccess()){
             LoginRegisterPage loginRegisterPage = new LoginRegisterPage();
             loginRegisterPage.login(user);
         }
-        Assert.assertTrue(busketPage.isBuySucess());
+        Assert.assertTrue(basketPage.isBuySuccess());
 
     }
 }

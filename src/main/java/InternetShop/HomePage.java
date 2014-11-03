@@ -1,4 +1,4 @@
-package InternetShop;
+package internetShop;
 
 import java.util.HashMap;
 import java.util.List;
