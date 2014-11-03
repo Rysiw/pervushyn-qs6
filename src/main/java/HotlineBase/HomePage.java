@@ -5,6 +5,8 @@ package hotlineBase;
  */
 public class HomePage {
 
+
+
     public void openLoginPage(){
 
     }
