@@ -1,9 +1,9 @@
 package functionalTest;
 
 import users.Users;
-import internetShop.BasketPage;
-import internetShop.HomePage;
-import internetShop.LoginRegisterPage;
+import inetShop.BasketPage;
+import inetShop.HomePage;
+import inetShop.LoginRegisterPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

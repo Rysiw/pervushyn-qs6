@@ -1,4 +1,4 @@
-package internetShop;
+package inetShop;
 
 import users.Users;
 
