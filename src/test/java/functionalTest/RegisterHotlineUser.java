@@ -1,7 +1,7 @@
-package functionalTests;
+package functionalTest;
 
-import hotlineBase.HomePage;
-import hotlineBase.RegisterPage;
+import hotlinePages.HomePage;
+import hotlinePages.RegisterPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

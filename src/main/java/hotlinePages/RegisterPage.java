@@ -1,4 +1,4 @@
-package hotlineBase;
+package hotlinePages;
 
 /**
  * Created by Ruslan on 11/2/14.

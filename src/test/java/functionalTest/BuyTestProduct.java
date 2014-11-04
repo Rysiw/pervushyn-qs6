@@ -1,6 +1,6 @@
-package functionalTests;
+package functionalTest;
 
-import actors.Users;
+import users.Users;
 import internetShop.BasketPage;
 import internetShop.HomePage;
 import internetShop.LoginRegisterPage;

@@ -1,6 +1,6 @@
 package internetShop;
 
-import actors.Users;
+import users.Users;
 
 /**
  * Created by Ruslan on 10/29/14.

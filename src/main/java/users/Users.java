@@ -1,4 +1,4 @@
-package actors;
+package users;
 
 /**
  * Created by Ruslan on 10/29/14.

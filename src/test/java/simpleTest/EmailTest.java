@@ -1,4 +1,4 @@
-package Simple;
+package simpleTest;
 
 import my.EmailValidator;
 import org.testng.Assert;
