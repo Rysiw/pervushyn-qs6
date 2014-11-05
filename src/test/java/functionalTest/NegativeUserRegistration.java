@@ -13,10 +13,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
- * Created by Ruslan on 11/2/14.
+ * Created by Ruslan on 11/5/14.
  */
-public class RegisterHotlineUser  {
-
+public class NegativeUserRegistration {
     public static WebDriver driver;
     public static String URL = "http://hotline.ua";
 
@@ -29,21 +28,19 @@ public class RegisterHotlineUser  {
     @DataProvider
     public Object[][] registerData() {
         return new Object[][] {
-                new Object[] {EmailGenerator.emailGenerator("user", "@gmail.com"),"user", "Qwerty123","Qwerty123"},
+                new Object[] {"user@gmail.com","user", "Qwerty123","Qwerty123"},
         };
     }
 
 
     @Test(dataProvider = "registerData")
-    public void registerUserTest(String email, String regName, String password, String passwordRepeat){
+    public void registerUserTest2(String email, String regName, String password, String passwordRepeat) {
         driver.get(URL);
         HomePage.loadHomePage(driver);
         HomePage.openRegisterPage(driver);
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
-        Assert.assertTrue(RegisterSuccessPage.successRegister(driver));
-
+        Assert.assertTrue(RegisterPage.isUserPresent(driver), "Registration failed. Please verify input data.");
     }
-
 
     @AfterSuite
     public void after(){
@@ -51,4 +48,5 @@ public class RegisterHotlineUser  {
             driver.quit();
         }
     }
+
 }
