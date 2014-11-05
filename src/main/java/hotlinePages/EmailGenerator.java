@@ -7,11 +7,11 @@ import java.util.Random;
  */
 public class EmailGenerator {
 
-    public static String emailGenerator(String USER_NAME, String END_EMAIL){
+    public static String emailGenerator(String userName, String endEmail){
         Random random = new Random();
         int rage=9999;
         int generator=random.nextInt(rage);
-        return USER_NAME + generator + END_EMAIL;
+        return userName + generator + endEmail;
     }
 
 }
