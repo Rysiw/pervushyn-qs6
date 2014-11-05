@@ -9,6 +9,7 @@
         <parameter name = "IncorrectEmail" value="ruslan.gmail.com"/>
         <classes>
             <class name="functionalTest.RegisterHotlineUser" />
+            <class name="functionalTest.NegativeUserRegistration" />
         </classes>
     </test>
 </suite>
