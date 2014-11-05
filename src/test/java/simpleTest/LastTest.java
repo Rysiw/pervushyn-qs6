@@ -1,4 +1,4 @@
-package Simple;
+package simpleTest;
 
 import my.Sum;
 import org.testng.Assert;

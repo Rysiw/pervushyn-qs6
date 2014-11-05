@@ -8,7 +8,7 @@
         <parameter name = "Email" value="ruslan.r@gmail.com"/>
         <parameter name = "IncorrectEmail" value="ruslan.gmail.com"/>
         <classes>
-            <class name="Simple.Homework4" />
+            <class name="functionalTest.RegisterHotlineUser" />
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package Simple;
+package simpleTest;
 
 
 import my.SubString;
