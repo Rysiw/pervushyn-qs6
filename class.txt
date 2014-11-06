@@ -1,0 +1,2 @@
+ <class name="functionalTest.RegisterHotlineUser" />
+ <class name="functionalTest.NegativeUserRegistration" />
