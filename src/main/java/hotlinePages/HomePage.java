@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Log4Test;
 
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * Created by Ruslan on 11/2/14.
@@ -19,14 +21,12 @@ public class HomePage {
 
 
     public static void closeBanner(WebDriver driver){
-        //WebDriverWait wait = new WebDriverWait(driver, 15000);
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.className(CLOSE_BANNER))));
         driver.findElement(CLOSE_BANNER).click();
         driver.findElement(SELECT_PLACE).click();
-
     }
 
-    public static void openRegisterPage(WebDriver driver){
+    public static void openRegisterPage(WebDriver driver)
+    {
         driver.findElement(REGISTER_LINK).click();
     }
 

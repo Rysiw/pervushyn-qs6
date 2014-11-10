@@ -3,6 +3,8 @@ package hotlinePages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Ruslan on 11/5/14.
  */
@@ -13,6 +15,7 @@ public class ProductPage {
     //private static final By SEARCH_RESULT = By.xpath("//a[contains(text(), 'Galaxy')]");
 
     public static void findProduct(WebDriver driver, String searchItem) throws InterruptedException {
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(SEARCH_BOX).clear();
         driver.findElement(SEARCH_BOX).sendKeys(searchItem);
         driver.findElement(SEARCH_BUTTON).click();

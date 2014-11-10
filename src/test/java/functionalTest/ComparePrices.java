@@ -31,7 +31,7 @@ public class ComparePrices extends FunctionalTest {
         ProductPage.findProduct(driver, searchItem);
         Log4Test.info("Find Price");
         driver.findElement(By.className("but-box")).click();
-        Assert.assertTrue(driver.findElements(By.className("box")).size() > 1, Log4Test.info("Found more than one price"));
+        Assert.assertTrue(driver.findElements(By.className("box")).size() > 1, Log4Test.error("Found more than one price"));
         Log4Test.info("More than one price were found. Test ComparePrices passed successful");
 
 
