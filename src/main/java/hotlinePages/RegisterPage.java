@@ -24,7 +24,7 @@ public class RegisterPage {
     }
 
     public static boolean isUserPresent(WebDriver driver){
-        if (driver.findElement(ERROR).isDisplayed()){
+        if (driver.findElements(ERROR).size() !=0){
             return true;
         }
         return false;
