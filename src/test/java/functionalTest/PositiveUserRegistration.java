@@ -34,7 +34,6 @@ public class PositiveUserRegistration extends FunctionalTest{
         HomePage.openRegisterPage(driver);
         Log4Test.info("Register new User");
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
-        Thread.sleep(5000);
         Assert.assertTrue(RegisterSuccessPage.successRegister(driver), "Welcome to HotLine. Register is success");
         Log4Test.info("New User was registered. Test PositiveUserRegistration passed successful");
 

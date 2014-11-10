@@ -32,7 +32,6 @@ public class NegativeUserRegistration extends FunctionalTest {
         HomePage.openRegisterPage(driver);
         Log4Test.info("Register existing User");
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
-        Thread.sleep(5000);
         Assert.assertTrue(RegisterPage.isUserPresent(driver), "Registration failed. Please verify input data.");
         Log4Test.info("Existed User were found. Test NegativeUserRegistration passed successful");
     }
