@@ -9,10 +9,10 @@ import org.openqa.selenium.WebDriver;
  */
 public class RegisterSuccessPage {
 
-    private static final String REG_SUCCESS  = "registr-successful";
+    private static final By REG_SUCCESS  = By.className("registr-successful");
 
     public static boolean successRegister(WebDriver driver){
-        if (driver.findElement(By.className(REG_SUCCESS)).isDisplayed()) return true;
+        if (driver.findElement(REG_SUCCESS).isDisplayed()) return true;
         else return false;
     }
 }

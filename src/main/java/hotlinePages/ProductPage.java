@@ -8,20 +8,22 @@ import org.openqa.selenium.WebDriver;
  */
 public class ProductPage {
 
-    public static String PRODUCT = "searchbox";
-    public static String SEARCH_BUTTON = "doSearch";
-    public static String SEARCH_RESULT = "//a[contains(text(), 'Galaxy')]";
+    private static final By SEARCH_BOX = By.id("searchbox");
+    private static final By SEARCH_BUTTON = By.id("doSearch");
+    //private static final By SEARCH_RESULT = By.xpath("//a[contains(text(), 'Galaxy')]");
 
-    public static void findProduct(WebDriver driver){
-        driver.findElement(By.id(PRODUCT)).sendKeys("galaxy");
-        driver.findElement(By.id(SEARCH_BUTTON)).click();
+    public static void findProduct(WebDriver driver, String searchItem) throws InterruptedException {
+        driver.findElement(SEARCH_BOX).clear();
+        driver.findElement(SEARCH_BOX).sendKeys(searchItem);
+        driver.findElement(SEARCH_BUTTON).click();
+        Thread.sleep(5000);
     }
 
-    public static boolean isProductPresent (WebDriver driver){
-        if (driver.findElement(By.xpath(SEARCH_RESULT)).isDisplayed()){
+    /*public static boolean isProductPresent (WebDriver driver){
+        if (driver.findElement(SEARCH_RESULT).isDisplayed()){
             return true;
         }
         return false;
-    }
+    }*/
 
 }

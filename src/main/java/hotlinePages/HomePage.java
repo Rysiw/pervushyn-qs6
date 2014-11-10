@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log4Test;
 
 
 /**
@@ -11,20 +12,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class HomePage {
 
-    public static String CLOSE_BANNER = "close";
-    public static String SELECT_PLACE = "blue-button";
-    public static String REGISTER_LINK = "reg";
+    private static final By CLOSE_BANNER = By.className("close");
+    private static final By SELECT_PLACE = By.className("blue-button");
+    private static final By REGISTER_LINK = By.className("reg");
 
 
-    public static void loadHomePage(WebDriver driver){
+
+    public static void closeBanner(WebDriver driver){
         //WebDriverWait wait = new WebDriverWait(driver, 15000);
         //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.className(CLOSE_BANNER))));
-        driver.findElement(By.className(CLOSE_BANNER)).click();
-        driver.findElement(By.className(SELECT_PLACE)).click();
+        driver.findElement(CLOSE_BANNER).click();
+        driver.findElement(SELECT_PLACE).click();
+
     }
 
     public static void openRegisterPage(WebDriver driver){
-        driver.findElement(By.className(REGISTER_LINK)).click();
+        driver.findElement(REGISTER_LINK).click();
     }
 
 }

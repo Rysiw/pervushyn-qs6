@@ -12,43 +12,26 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Ruslan on 11/2/14.
  */
-public class RegisterHotlineUser  {
-
-    public static WebDriver driver;
-    public static String URL = "http://hotline.ua";
-
-    @BeforeSuite
-    public void setInv(){
-        driver = new FirefoxDriver();
-    }
-
+public class PositiveUserRegistration extends FunctionalTest{
 
     @DataProvider
-    public Object[][] registerData() {
+    public Object[][] registerPositiveData() {
         return new Object[][] {
                 new Object[] {EmailGenerator.emailGenerator("user", "@gmail.com"),"user", "Qwerty123","Qwerty123"},
         };
     }
 
-
-    @Test(dataProvider = "registerData")
+    @Test(dataProvider = "registerPositiveData")
     public void registerUserTest(String email, String regName, String password, String passwordRepeat){
-        driver.get(URL);
-        HomePage.loadHomePage(driver);
         HomePage.openRegisterPage(driver);
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
-        Assert.assertTrue(RegisterSuccessPage.successRegister(driver));
+        Assert.assertTrue(RegisterSuccessPage.successRegister(driver), "Welcome to HotLine. Register is success");
 
     }
 
-
-    @AfterSuite
-    public void after(){
-        if (driver !=null){
-            driver.quit();
-        }
-    }
 }
