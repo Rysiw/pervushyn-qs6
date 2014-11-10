@@ -15,38 +15,20 @@ import org.testng.annotations.Test;
 /**
  * Created by Ruslan on 11/5/14.
  */
-public class NegativeUserRegistration {
-    public static WebDriver driver;
-    public static String URL = "http://hotline.ua";
-
-    @BeforeSuite
-    public void setInv(){
-        driver = new FirefoxDriver();
-    }
-
+public class NegativeUserRegistration extends FunctionalTest {
 
     @DataProvider
-    public Object[][] registerData() {
+    public Object[][] registerNegativeData() {
         return new Object[][] {
                 new Object[] {"user@gmail.com","user", "Qwerty123","Qwerty123"},
         };
     }
 
-
-    @Test(dataProvider = "registerData")
+    @Test(dataProvider = "registerNegativeData")
     public void registerUserTest2(String email, String regName, String password, String passwordRepeat) {
-        driver.get(URL);
-        HomePage.loadHomePage(driver);
         HomePage.openRegisterPage(driver);
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
         Assert.assertTrue(RegisterPage.isUserPresent(driver), "Registration failed. Please verify input data.");
-    }
-
-    @AfterSuite
-    public void after(){
-        if (driver !=null){
-            driver.quit();
-        }
     }
 
 }
