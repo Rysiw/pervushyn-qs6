@@ -11,6 +11,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.Log4Test;
 
 /**
  * Created by Ruslan on 11/5/14.
@@ -26,9 +27,13 @@ public class NegativeUserRegistration extends FunctionalTest {
 
     @Test(dataProvider = "registerNegativeData")
     public void registerUserTest2(String email, String regName, String password, String passwordRepeat) {
+        Log4Test.info("Test NegativeUserRegistration is started");
+        Log4Test.info("Open Register Page");
         HomePage.openRegisterPage(driver);
+        Log4Test.info("Register existing User");
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
         Assert.assertTrue(RegisterPage.isUserPresent(driver), "Registration failed. Please verify input data.");
+        Log4Test.info("Existed User were found. Test NegativeUserRegistration passed successful");
     }
 
 }

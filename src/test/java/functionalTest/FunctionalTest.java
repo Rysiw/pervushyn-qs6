@@ -19,13 +19,14 @@ public class FunctionalTest {
         driver = new FirefoxDriver();
         Log4Test.info("Open Browser");
         driver.get(URL);
-        Log4Test.info("Open URL");
+        Log4Test.info("Open target URL");
         HomePage.closeBanner(driver);
         Log4Test.info("Close Banners");
     }
 
     @AfterSuite
     public void after(){
+        Log4Test.info("Exit Browser");
         if (driver !=null){
             driver.quit();
         }
