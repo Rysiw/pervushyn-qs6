@@ -26,8 +26,8 @@ public class RegisterPage {
     }
 
     public static boolean isUserPresent(WebDriver driver){
-        WebDriverWait wait = new WebDriverWait(driver, 15000);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(ERROR)));
+        //WebDriverWait wait = new WebDriverWait(driver, 15000);
+        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(ERROR)));
         if (driver.findElements(ERROR).size() !=0){
             return true;
         }
