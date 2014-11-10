@@ -2,6 +2,8 @@ package hotlinePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Ruslan on 11/2/14.
@@ -24,6 +26,8 @@ public class RegisterPage {
     }
 
     public static boolean isUserPresent(WebDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver, 15000);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.className(ERROR))));
         if (driver.findElements(ERROR).size() !=0){
             return true;
         }
