@@ -26,6 +26,7 @@ public class FindProductPositive extends FunctionalTest {
         Log4Test.info("Test FindProductPositive is started");
         Log4Test.info("Search for Item");
         ProductPage.findProduct(driver, searchItem);
+        Thread.sleep(5000);
         Assert.assertTrue(driver.findElement(By.xpath("//a[contains(text(),'" + searchItem + "')]")).isDisplayed(),Log4Test.info("Item was found. Test is success"));
         Log4Test.info("Item was found. Test FindProductPositive passed successful");
     }
