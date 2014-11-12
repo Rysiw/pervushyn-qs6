@@ -21,12 +21,14 @@ public class HomePage {
 
 
     public static void closeBanner(WebDriver driver){
+        Log4Test.info("Close Banners");
         driver.findElement(CLOSE_BANNER).click();
         driver.findElement(SELECT_PLACE).click();
     }
 
     public static void openRegisterPage(WebDriver driver)
     {
+        Log4Test.info("Open Register Page");
         driver.findElement(REGISTER_LINK).click();
     }
 

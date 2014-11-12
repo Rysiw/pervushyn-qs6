@@ -28,11 +28,9 @@ public class NegativeUserRegistration extends FunctionalTest {
     @Test(dataProvider = "registerNegativeData")
     public void registerUserTest2(String email, String regName, String password, String passwordRepeat) throws InterruptedException {
         Log4Test.info("Test NegativeUserRegistration is started");
-        Log4Test.info("Open Register Page");
         HomePage.openRegisterPage(driver);
-        Log4Test.info("Register existing User");
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
-        Assert.assertTrue(RegisterPage.isUserPresent(driver), "Registration failed. Please verify input data.");
+        Assert.assertTrue(RegisterPage.isUserPresent(driver), Log4Test.info("Registration failed. Please verify input data."));
         Log4Test.info("Existed User were found. Test NegativeUserRegistration passed successful");
     }
 

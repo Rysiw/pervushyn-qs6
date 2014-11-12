@@ -16,8 +16,6 @@ import java.util.Set;
 public class WebDriverWrapper implements WebDriver {
     private static WebDriver driver;
     private static final int TIME_TO_WAIT = Integer.valueOf(PropertyLoader.loadProperty("selenium.max.timeout"));
-    //private static final int TIME_TO_WAIT = 30;
-    //private static final String URL = "http://hotline.ua";
 
     public WebDriverWrapper (WebDriver driver){
         this.driver = driver;
@@ -25,7 +23,6 @@ public class WebDriverWrapper implements WebDriver {
 
     @Override
     public void get(String URL) {
-
         driver.get(URL);
     }
 

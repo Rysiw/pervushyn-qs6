@@ -1,9 +1,11 @@
 package hotlinePages;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log4Test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +22,7 @@ public class RegisterPage {
     private static final By REGISTER_BUTTON = By.className("blue-button");
 
     public static void registerNewUser(WebDriver driver, String inputEmail, String inputName, String inputPassword, String inputPasswordRepeat){
+        Log4Test.info("Register New User: " + "E-mail: " + inputEmail + "Name: " + inputName + "Password: " + inputPassword );
         driver.findElement(EMAIL).sendKeys(inputEmail);
         driver.findElement(NICK_NAME).sendKeys(inputName);
         driver.findElement(PASSWORD).sendKeys(inputPassword);
@@ -31,6 +34,7 @@ public class RegisterPage {
         //WebDriverWait wait = new WebDriverWait(driver, 15000);
         //wait.until(ExpectedConditions.visibilityOf(driver.findElement(ERROR)));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Log4Test.info("Verify if User exist");
         if (driver.findElements(ERROR).size() !=0){
             return true;
         }

@@ -30,11 +30,9 @@ public class PositiveUserRegistration extends FunctionalTest{
     @Test(dataProvider = "registerPositiveData")
     public void registerUserTest(String email, String regName, String password, String passwordRepeat) throws InterruptedException {
         Log4Test.info("Test PositiveUserRegistration is started");
-        Log4Test.info("Open Register Page");
         HomePage.openRegisterPage(driver);
-        Log4Test.info("Register new User");
         RegisterPage.registerNewUser(driver, email, regName, password, passwordRepeat);
-        Assert.assertTrue(RegisterSuccessPage.successRegister(driver), "Welcome to HotLine. Register is success");
+        Assert.assertTrue(RegisterSuccessPage.successRegister(driver), Log4Test.info("Welcome to HotLine. Register is success"));
         Log4Test.info("New User was registered. Test PositiveUserRegistration passed successful");
 
     }
