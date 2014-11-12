@@ -33,7 +33,7 @@ public class FindRefrigerator extends FunctionalTest{
         Log4Test.info("Uses filter for brand LG");
         driver.findElement(By.className("ddopener")).click();
         Log4Test.info("Select price filter");
-        driver.findElement(By.xpath("//a[contains(text(),'возрастанию цены')]")).click();
+        driver.findElement(By.xpath("//a[@href='http://hotline.ua/bt/holodilniki/627/?sort=0']")).click();
         Log4Test.info("Find more than 2 first refrigerators are LG ");
         Assert.assertTrue(driver.findElements(LG).size()>2, Log4Test.info("More than 2 prices of LG refrigerators"));
         Log4Test.info("Test passed successful");
