@@ -23,9 +23,8 @@ public class FindProductNegative extends FunctionalTest {
     @Test(dataProvider = "searchData")
     public void findProductNegative(String searchItem) throws InterruptedException {
         Log4Test.info("Test FindProductNegative is started");
-        Log4Test.info("Search for Item");
         ProductPage.findProduct(driver, searchItem);
-        Assert.assertTrue(driver.findElement(INCORRECT_ITEM).isDisplayed(), Log4Test.error("Product wasn't found."));
+        Assert.assertTrue(driver.findElement(INCORRECT_ITEM).isDisplayed(), Log4Test.info("Product wasn't found."));
         Log4Test.info("Item wasn't found. Test FindProductNegative passed successful");
     }
 }

@@ -19,12 +19,10 @@ public class FunctionalTest {
 
     @BeforeSuite
     public void setInv(){
-        //driver = new FirefoxDriver();
-        //driver.get(URL);
         System.out.println(PropertyLoader.loadProperty("browser.name"));
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
         driver.get(URL);
-       // HomePage.closeBanner(driver);
+        HomePage.closeBanner(driver);
 
     }
 

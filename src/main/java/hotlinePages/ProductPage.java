@@ -2,6 +2,7 @@ package hotlinePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.Log4Test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,7 +17,9 @@ public class ProductPage {
 
     public static void findProduct(WebDriver driver, String searchItem) throws InterruptedException {
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Log4Test.info("Clear Search Box");
         driver.findElement(SEARCH_BOX).clear();
+        Log4Test.info("Find product: " + searchItem);
         driver.findElement(SEARCH_BOX).sendKeys(searchItem);
         driver.findElement(SEARCH_BUTTON).click();
         Thread.sleep(5000);

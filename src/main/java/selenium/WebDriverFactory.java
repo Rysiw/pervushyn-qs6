@@ -14,11 +14,8 @@ public class WebDriverFactory {
 
     public static WebDriverWrapper initDriver(String driverName){
         WebDriverWrapper driverWrapper = null;
-        if (driverName.equals(FIREFOX)) {
-            driverWrapper = new WebDriverWrapper(new FirefoxDriver());
-        } else
-
-        {
+        if (driverName.equals(FIREFOX)) driverWrapper = new WebDriverWrapper(new FirefoxDriver());
+        else {
             if (driverName.equals(HTMLUNIT)) {
                 driverWrapper = new WebDriverWrapper(new HtmlUnitDriver());
             } else
