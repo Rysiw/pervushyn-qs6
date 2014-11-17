@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Ruslan on 11/17/14.
  */
 public class RefrigeratorPage {
+    public static final String URL = "http://hotline.ua";
     private static final By LG = By.xpath("//a[contains(text(),'LG')]");
     private static final By BT = By.xpath("//a[@href='/bt/']");
     private static final By FRIDGE = By.xpath("//a[@href='/bt/holodilniki/']");

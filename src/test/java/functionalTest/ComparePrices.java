@@ -28,8 +28,6 @@ public class ComparePrices extends FunctionalTest {
     public void comparePrices(String searchItem) throws InterruptedException {
         Log4Test.info("#Test ComparePrices is started#");
         ProductPage.findProduct(driver, searchItem);
-        //driver.findElement(By.className("but-box")).click();
-        //Assert.assertTrue(driver.findElements(By.className("box")).size() > 1, Log4Test.info("Found more than one price"));
         Assert.assertTrue(ProductPage.comparePrice(driver), Log4Test.info("Found more than one price"));
         Log4Test.info("#More than one price were found. Test ComparePrices passed successful#");
 

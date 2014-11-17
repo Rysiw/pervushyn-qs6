@@ -25,7 +25,6 @@ public class FindProductPositive extends FunctionalTest {
     public void findProductPositive(String searchItem) throws InterruptedException {
         Log4Test.info("#Test FindProductPositive is started#");
         ProductPage.findProduct(driver, searchItem);
-        //Assert.assertTrue(driver.findElement(By.xpath("//a[contains(text(),'" + searchItem + "')]")).isDisplayed(),Log4Test.info("Item was found. Test is success"));
         Assert.assertTrue(ProductPage.isProductPresent(driver, searchItem),Log4Test.info("Item was found. Test is success"));
         Log4Test.info("#Item was found. Test FindProductPositive passed successful#");
     }

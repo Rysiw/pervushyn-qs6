@@ -19,9 +19,8 @@ public class FindRefrigerator extends FunctionalTest{
         };
     }
 
-    @Test
+    @Test(dataProvider = "searchData")
     public void findRefrigerator(String inputData) throws InterruptedException {
-
         Log4Test.info("Test FindRefrigerator is started");
         RefrigeratorPage.openFridgePage(driver);
         RefrigeratorPage.filterFridgeBrand(driver);
