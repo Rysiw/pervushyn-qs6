@@ -1,4 +1,4 @@
-package hotlinePages;
+package tools;
 
 import utils.Log4Test;
 

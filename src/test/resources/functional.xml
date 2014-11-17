@@ -6,13 +6,8 @@
 
     <test name="SmokeTest">
         <classes>
-            <class name="functionalTest.FindRefrigerator" />
-            <class name="functionalTest.FindProductPositive" />
-            <class name="functionalTest.FindProductNegative" />
-            <class name="functionalTest.PositiveUserRegistration" />
-            <class name="functionalTest.NegativeUserRegistration" />
             <class name="functionalTest.ComparePrices" />
-
+            <class name="functionalTest.FindRefrigerator" />
         </classes>
     </test>
 </suite>
