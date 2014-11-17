@@ -21,6 +21,10 @@ public class WebDriverWrapper implements WebDriver {
         this.driver = driver;
     }
 
+    public WebDriver getOriginalDriver() {
+        return this.driver;
+    }
+
     @Override
     public void get(String URL) {
         driver.get(URL);

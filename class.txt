@@ -3,6 +3,7 @@
 <class name="functionalTest.PositiveUserRegistration" />
 <class name="functionalTest.NegativeUserRegistration" />
 <class name="functionalTest.ComparePrices" />
+<class name="functionalTest.FindRefrigerator" />
 
 
     <profiles>

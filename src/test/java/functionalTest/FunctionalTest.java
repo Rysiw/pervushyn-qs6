@@ -4,6 +4,7 @@ import hotlinePages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import selenium.WebDriverFactory;
 import selenium.WebDriverWrapper;
@@ -15,16 +16,17 @@ import utils.PropertyLoader;
  */
 public class FunctionalTest {
     public static WebDriverWrapper driver;
-    public static String URL = "http://hotline.ua";
+    //public static String URL = "http://hotline.ua";
 
     @BeforeSuite
     public void setInv(){
         System.out.println(PropertyLoader.loadProperty("browser.name"));
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
-        driver.get(URL);
+        driver.get(PropertyLoader.loadProperty("site.url"));
         HomePage.closeBanner(driver);
 
     }
+
 
     @AfterSuite
     public void after(){

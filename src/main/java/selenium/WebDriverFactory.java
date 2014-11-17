@@ -16,9 +16,8 @@ public class WebDriverFactory {
         WebDriverWrapper driverWrapper = null;
         if (driverName.equals(FIREFOX)) driverWrapper = new WebDriverWrapper(new FirefoxDriver());
         else {
-            if (driverName.equals(HTMLUNIT)) {
-                driverWrapper = new WebDriverWrapper(new HtmlUnitDriver());
-            } else
+            if (driverName.equals(HTMLUNIT)) driverWrapper = new WebDriverWrapper(new HtmlUnitDriver());
+            else
                 Assert.fail("Invalid driver name");
         }
 
