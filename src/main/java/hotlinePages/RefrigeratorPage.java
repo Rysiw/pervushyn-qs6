@@ -13,16 +13,21 @@ import java.util.concurrent.TimeUnit;
  * Created by Ruslan on 11/17/14.
  */
 public class RefrigeratorPage {
-    public static final String URL = "http://hotline.ua";
+    private static final String URL = "http://hotline.ua";
     private static final By LG = By.xpath("//a[contains(text(),'LG')]");
     private static final By BT = By.xpath("//a[@href='/bt/']");
     private static final By FRIDGE = By.xpath("//a[@href='/bt/holodilniki/']");
     private static final By SORT_BY_PRICE_RISE = By.xpath("//a[@href='http://hotline.ua/bt/holodilniki/627/?sort=0']");
     private static final By PRICE_LIST = By.xpath("//div[@class='price']");
     private static final By PRICE = By.xpath("//span[@class='orng']");
+    private WebDriverWrapper driver;
 
+    public RefrigeratorPage(WebDriverWrapper driver) {
+        this.driver = driver;
+    }
 
-    public static void openFridgePage(WebDriverWrapper driver) throws InterruptedException {
+    public void openFridgePage() throws InterruptedException {
+        driver.get(URL);
         Actions actions = new Actions(driver.getOriginalDriver());
         actions.moveToElement(driver.findElement(BT));
         actions.perform();
@@ -30,17 +35,18 @@ public class RefrigeratorPage {
         driver.findElement(FRIDGE).click();
     }
 
-    public static void filterFridgeBrand(WebDriver driver){
+    public void filterFridgeBrand(){
         driver.findElement(By.linkText("LG")).click();
         driver.findElement(By.className("ddopener")).click();
+        //, String brand
     }
 
-    public static void sortFridge(WebDriver driver){
+    public void sortFridge(){
         Log4Test.info("Select price filter");
         driver.findElement(SORT_BY_PRICE_RISE).click();
     }
 
-    public static boolean priceCompare(WebDriver driver) {
+    public boolean priceCompare() {
         WebElement element = driver.findElement(PRICE_LIST);
         List<WebElement> price = element.findElements(PRICE);
         Integer firstPrice = strToInt(price.get(0).getText());
@@ -56,7 +62,7 @@ public class RefrigeratorPage {
         }
     }
 
-    public static boolean countOfProduct(WebDriver driver, String inputData){
+    public boolean countOfProduct(String inputData){
         if (driver.findElements(By.xpath("//a[contains(text(),'"+ inputData +"')]")).size()>2) {
             return true;
         } else {
@@ -64,7 +70,7 @@ public class RefrigeratorPage {
         }
     }
 
-    public static int strToInt(String str){
+    public int strToInt(String str){
             String [] inputStr = str.split("\u0433\u0440\u043d");
             String rmSpaces = inputStr[0].replace(" ", "");
             int price = Integer.parseInt(rmSpaces);

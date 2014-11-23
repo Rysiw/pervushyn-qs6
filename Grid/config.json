@@ -1,0 +1,23 @@
+{ 
+	"class":"org.openga.grid.common.RegistrationRequest",
+	"capabilities": [ { 
+		"seleniumProtocol": "WebDriver",
+		"browserName": "firefox", 
+		"version": "9.0.1", 
+		"platform": "MAC", 
+		"maxInstances": 1 } ], 
+	"configuration": { 
+		"host":"192.168.10.193”,
+		"nodeTimeout":120, 
+		"port":5555, 
+		"hubPort":9999, 
+		"hubHost":"192.168.10.164",
+		"hub":"http://192.168.10.164:9999/wd/hub",
+		"remoteHost":"http://192.168.10.193:5555", 
+		"nodePolling":2000,
+		"role":"webdriver", 
+		"registerCycle":10000, 
+		"register":true, 
+		"cleanUpCycle":2000, 
+		"timeout":30000, 
+		"maxSession":1 } }

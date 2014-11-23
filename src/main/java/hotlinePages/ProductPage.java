@@ -2,6 +2,7 @@ package hotlinePages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import selenium.WebDriverWrapper;
 import utils.Log4Test;
 
 import java.util.concurrent.TimeUnit;
@@ -14,11 +15,13 @@ public class ProductPage {
     private static final By SEARCH_BOX = By.id("searchbox");
     private static final By SEARCH_BUTTON = By.id("doSearch");
     private static final By PRICE_BUTTON = By.className("but-box");
+    private WebDriverWrapper driver;
 
-    //private static final By SEARCH_RESULT = By.xpath("//a[contains(text(), 'Galaxy')]");
+    public ProductPage(WebDriverWrapper driver) {
+        this.driver = driver;
+    }
 
-    public static void findProduct(WebDriver driver, String searchItem) throws InterruptedException {
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void findProduct(String searchItem) throws InterruptedException {
         Log4Test.info("Clear Search Box");
         driver.findElement(SEARCH_BOX).clear();
         Log4Test.info("Find product: " + searchItem);
@@ -27,7 +30,7 @@ public class ProductPage {
         Thread.sleep(5000);
     }
 
-    public static boolean comparePrice (WebDriver driver){
+    public boolean comparePrice (){
         driver.findElement(PRICE_BUTTON).click();
         if (driver.findElements(By.className("box")).size() > 1){
             return true;
@@ -36,7 +39,7 @@ public class ProductPage {
         }
     }
 
-    public static boolean isProductPresent (WebDriver driver, String searchItem) {
+    public boolean isProductPresent (String searchItem) {
         if (driver.findElement(By.xpath("//a[contains(text(),'" + searchItem + "')]")).isDisplayed()) {
             return true;
         } else {
@@ -44,7 +47,7 @@ public class ProductPage {
         }
     }
 
-    public static boolean incorrectSearch (WebDriver driver) {
+    public boolean incorrectSearch () {
        if (driver.findElement(By.className("sabj")).isDisplayed()){
            return true;
        } else {

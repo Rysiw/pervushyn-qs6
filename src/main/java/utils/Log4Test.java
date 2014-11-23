@@ -14,6 +14,8 @@ public class Log4Test {
     // ****************** Default message content ********************
     private static final String INFO_LOG = "INFO: \"%s\"";
     private static final String ERROR_LOG = "ERROR: \"%s\" !";
+    private static final String START_TEST_LOG = "START TEST: \"%s\"";
+    private static final String END_TEST_LOG = "END TEST: \"%s\" !";
 
     public static String error (String message)
     {
@@ -28,4 +30,19 @@ public class Log4Test {
         Reporter.log(String.format(INFO_LOG, message));
         return String.format(INFO_LOG, message);
     }
+    public static String start(String message)
+    {
+        LOGGER.info(String.format(START_TEST_LOG, message));
+        Reporter.log(String.format(START_TEST_LOG, message));
+        return String.format(START_TEST_LOG, message);
+    }
+
+    public static String end(String message)
+    {
+        LOGGER.info(String.format(END_TEST_LOG, message));
+        Reporter.log(String.format(END_TEST_LOG, message));
+        return String.format(END_TEST_LOG, message);
+    }
+
+
 }
