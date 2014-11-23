@@ -22,16 +22,15 @@ public class FindRefrigerator extends Functional {
     }
 
     @Test(dataProvider = "searchData")
-    public void findRefrigerator(String inputData) throws InterruptedException {
-        Log4Test.info("++++++++++++++Test FindRefrigerator is started++++++++++++++");
-        //Log4Test.startTest("test name");
+    public void findRefrigerator(String inputData){
+        Log4Test.start(getClass().getName());
         RefrigeratorPage refrigeratorPage = new RefrigeratorPage(driver);
         refrigeratorPage.openFridgePage();
-        refrigeratorPage.filterFridgeBrand();
+        refrigeratorPage.filterFridgeBrand(inputData);
         refrigeratorPage.sortFridge();
-        Assert.assertTrue(refrigeratorPage.countOfProduct(inputData), "More than 2 prices of LG refrigerators");
-        Assert.assertTrue(refrigeratorPage.priceCompare(), "Prices were compared");
-        Log4Test.info("++++++++++++++Test passed successful++++++++++++++");
+        Assert.assertTrue(refrigeratorPage.countOfProduct(inputData), "Unable to count product: " + inputData);
+        Assert.assertTrue(refrigeratorPage.priceCompare(), "Unable to compare prices for product: " + inputData);
+        Log4Test.end(getClass().getName());
 
     }
 }

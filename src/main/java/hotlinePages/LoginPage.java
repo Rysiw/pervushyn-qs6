@@ -9,8 +9,8 @@ public class LoginPage {
 
     public void login(Users user){
         fillUserData(user);
-
     }
+
     private void fillUserData(Users user){
 
     }

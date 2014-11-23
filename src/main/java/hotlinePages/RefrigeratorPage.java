@@ -1,7 +1,6 @@
 package hotlinePages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import selenium.WebDriverWrapper;
@@ -20,13 +19,16 @@ public class RefrigeratorPage {
     private static final By SORT_BY_PRICE_RISE = By.xpath("//a[@href='http://hotline.ua/bt/holodilniki/627/?sort=0']");
     private static final By PRICE_LIST = By.xpath("//div[@class='price']");
     private static final By PRICE = By.xpath("//span[@class='orng']");
+    private static final By SORT_MENU = By.className("ddopener");
+    private String findText = "//a[contains(text(),'%s')]";
+    private String linkText = "%s";
     private WebDriverWrapper driver;
 
     public RefrigeratorPage(WebDriverWrapper driver) {
         this.driver = driver;
     }
 
-    public void openFridgePage() throws InterruptedException {
+    public void openFridgePage(){
         driver.get(URL);
         Actions actions = new Actions(driver.getOriginalDriver());
         actions.moveToElement(driver.findElement(BT));
@@ -35,10 +37,11 @@ public class RefrigeratorPage {
         driver.findElement(FRIDGE).click();
     }
 
-    public void filterFridgeBrand(){
-        driver.findElement(By.linkText("LG")).click();
-        driver.findElement(By.className("ddopener")).click();
-        //, String brand
+    public void filterFridgeBrand(String brand){
+        Log4Test.info("Filter product by brand");
+        final By linkTextVar = By.linkText(String.format(linkText, brand));
+        driver.findElement(linkTextVar).click();
+        driver.findElement(SORT_MENU).click();
     }
 
     public void sortFridge(){
@@ -47,6 +50,7 @@ public class RefrigeratorPage {
     }
 
     public boolean priceCompare() {
+        Log4Test.info("Price compare method start");
         WebElement element = driver.findElement(PRICE_LIST);
         List<WebElement> price = element.findElements(PRICE);
         Integer firstPrice = strToInt(price.get(0).getText());
@@ -63,7 +67,8 @@ public class RefrigeratorPage {
     }
 
     public boolean countOfProduct(String inputData){
-        if (driver.findElements(By.xpath("//a[contains(text(),'"+ inputData +"')]")).size()>2) {
+        final By countOfProduct = By.xpath(String.format(findText,inputData));
+        if (driver.findElements(countOfProduct).size()>2) {
             return true;
         } else {
             return false;

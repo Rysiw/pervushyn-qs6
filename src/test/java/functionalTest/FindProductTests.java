@@ -26,20 +26,20 @@ public class FindProductTests extends Functional {
     }
 
     @Test(dataProvider = "searchDataPositive")
-    public void findProductPositive(String searchItem) throws InterruptedException {
-        Log4Test.start("++++++++++++++Test FindProductPositive is started++++++++++++++");
+    public void findProductPositive(String searchItem){
+        Log4Test.start(getClass().getName());
         ProductPage productPage = new ProductPage(driver);
         productPage.findProduct(searchItem);
-        Assert.assertTrue(productPage.isProductPresent(searchItem), Log4Test.info("Item was found. Test is success"));
-        Log4Test.end("++++++++++++++Item was found. Test FindProductPositive passed successful++++++++++++++");
+        Assert.assertTrue(productPage.isProductPresent(searchItem), "Item " + searchItem + " wasn't found.");
+        Log4Test.end(getClass().getName());
     }
 
     @Test(dataProvider = "searchDataNegative")
-    public void findProductNegative(String searchItem) throws InterruptedException {
-        Log4Test.start("++++++++++++++Test FindProductNegative is started++++++++++++++");
+    public void findProductNegative(String searchItem){
+        Log4Test.start(getClass().getName());
         ProductPage productPage = new ProductPage(driver);
         productPage.findProduct(searchItem);
-        Assert.assertTrue(productPage.incorrectSearch(), Log4Test.error("Product wasn't found."));
-        Log4Test.end("++++++++++++++Item wasn't found. Test FindProductNegative passed successful++++++++++++++");
+        Assert.assertTrue(productPage.incorrectSearch(), "Search input " + searchItem + " incorrect.");
+        Log4Test.end(getClass().getName());
     }
 }

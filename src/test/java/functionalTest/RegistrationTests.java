@@ -27,24 +27,24 @@ public class RegistrationTests extends Functional {
     }
 
     @Test(dataProvider = "registerPositiveData")
-    public void registerUserTestPositive(String email, String regName, String password, String passwordRepeat) throws InterruptedException {
-        Log4Test.start("++++++++++++++Test PositiveUserRegistration is started++++++++++++++");
+    public void registerUserTestPositive(String email, String regName, String password, String passwordRepeat){
+        Log4Test.start(getClass().getName());
         HomePage homePage = new HomePage(driver);
         homePage.openRegisterPage();
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.registerNewUser(email, regName, password, passwordRepeat);
-        Assert.assertTrue(registerPage.successRegister(), "Welcome to HotLine. Register is success");
-        Log4Test.end("++++++++++++++New User was registered. Test PositiveUserRegistration passed successful++++++++++++++");
+        Assert.assertTrue(registerPage.successRegister(), "Unable ro register user with data: "+ email + regName + password + passwordRepeat);
+        Log4Test.end(getClass().getName());
     }
 
     @Test(dataProvider = "registerNegativeData")
-    public void registerUserTestNegative(String email, String regName, String password, String passwordRepeat) throws InterruptedException {
-        Log4Test.start("++++++++++++++Test NegativeUserRegistration is started++++++++++++++");
+    public void registerUserTestNegative(String email, String regName, String password, String passwordRepeat){
+        Log4Test.start(getClass().getName());
         HomePage homePage = new HomePage(driver);
         homePage.openRegisterPage();
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.registerNewUser(email, regName, password, passwordRepeat);
-        Assert.assertTrue(registerPage.isUserPresent(), "Registration failed. Please verify input data.");
-        Log4Test.end("++++++++++++++Existed User were found. Test NegativeUserRegistration passed successful++++++++++++++");
+        Assert.assertTrue(registerPage.isUserPresent(), "User : " + email + regName + password + " isn't present");
+        Log4Test.end(getClass().getName());
     }
 }

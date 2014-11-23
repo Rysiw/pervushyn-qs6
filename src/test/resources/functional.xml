@@ -6,12 +6,10 @@
 
     <test name="SmokeTest">
         <classes>
-
             <class name="functionalTest.RegistrationTests" />
             <class name="functionalTest.FindProductTests" />
             <class name="functionalTest.FindRefrigerator" />
             <class name="functionalTest.ComparePrices" />
-
         </classes>
     </test>
 </suite>

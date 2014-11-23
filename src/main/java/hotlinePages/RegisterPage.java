@@ -44,8 +44,7 @@ public class RegisterPage {
     }
 
     public boolean isUserPresent(){
-        //WebDriverWait wait = new WebDriverWait(driver, 15000);
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(ERROR)));
+        Log4Test.info("Verification of USER presence");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Log4Test.info("Verify if User exist");
         if (driver.findElements(ERROR).size() !=0){
