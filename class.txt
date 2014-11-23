@@ -1,10 +1,7 @@
-<class name="functionalTest.FindProductPositive" />
-<class name="functionalTest.FindProductNegative" />
-<class name="functionalTest.PositiveUserRegistration" />
-<class name="functionalTest.NegativeUserRegistration" />
-<class name="functionalTest.ComparePrices" />
-<class name="functionalTest.FindRefrigerator" />
-
+ <class name="functionalTest.RegistrationTests" />
+            <class name="functionalTest.FindProductTests" />
+            <class name="functionalTest.FindRefrigerator" />
+            <class name="functionalTest.ComparePrices" />
 
     <profiles>
         <profile>

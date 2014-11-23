@@ -2,6 +2,7 @@ package functionalTest;
 
 
 import hotlinePages.RefrigeratorPage;
+import hotlinePages.RegisterPage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,7 +12,8 @@ import utils.Log4Test;
 /**
  * Created by Ruslan on 11/12/14.
  */
-public class FindRefrigerator extends FunctionalTest{
+public class FindRefrigerator extends Functional {
+
     @DataProvider
     public Object[][] searchData() {
         return new Object[][] {
@@ -20,14 +22,15 @@ public class FindRefrigerator extends FunctionalTest{
     }
 
     @Test(dataProvider = "searchData")
-    public void findRefrigerator(String inputData) throws InterruptedException {
-        Log4Test.info("Test FindRefrigerator is started");
-        RefrigeratorPage.openFridgePage(driver);
-        RefrigeratorPage.filterFridgeBrand(driver);
-        RefrigeratorPage.sortFridge(driver);
-        Assert.assertTrue(RefrigeratorPage.countOfProduct(driver,inputData), Log4Test.info("More than 2 prices of LG refrigerators"));
-        Assert.assertTrue(RefrigeratorPage.priceCompare(driver), Log4Test.info("Prices were compared"));
-        Log4Test.info("Test passed successful");
+    public void findRefrigerator(String inputData){
+        Log4Test.start(getClass().getName());
+        RefrigeratorPage refrigeratorPage = new RefrigeratorPage(driver);
+        refrigeratorPage.openFridgePage();
+        refrigeratorPage.filterFridgeBrand(inputData);
+        refrigeratorPage.sortFridge();
+        Assert.assertTrue(refrigeratorPage.countOfProduct(inputData), "Unable to count product: " + inputData);
+        Assert.assertTrue(refrigeratorPage.priceCompare(), "Unable to compare prices for product: " + inputData);
+        Log4Test.end(getClass().getName());
 
     }
 }
