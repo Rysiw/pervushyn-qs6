@@ -10,7 +10,7 @@ import java.util.Random;
 public class EmailGenerator {
 
     public static String emailGenerator(String userName, String endEmail){
-        Log4Test.info("Generate email");
+        Log4Test.info("Generating email for registering tests");
         Random random = new Random();
         int rage=9999;
         int generator=random.nextInt(rage);

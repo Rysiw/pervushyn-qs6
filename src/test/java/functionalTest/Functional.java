@@ -25,7 +25,9 @@ public class Functional {
     @BeforeSuite
     public void setInv(){
         System.out.println(PropertyLoader.loadProperty("browser.name"));
+        Log4Test.info("Loading browser: " + PropertyLoader.loadProperty("browser.name"));
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
+        Log4Test.info("Opening URL: " + PropertyLoader.loadProperty("site.url") );
         driver.get(PropertyLoader.loadProperty("site.url"));
         HomePage homePage = new HomePage(driver);
         homePage.closeBanner();

@@ -22,8 +22,9 @@ public class HomePage {
     }
 
     public void closeBanner(){
-        Log4Test.info("Close Banners on Main Page");
+        Log4Test.info("Close Banner");
         driver.findElement(CLOSE_BANNER).click();
+        Log4Test.info("Select location");
         driver.findElement(SELECT_PLACE).click();
     }
 

@@ -29,18 +29,22 @@ public class RefrigeratorPage {
     }
 
     public void openFridgePage(){
+        Log4Test.info("Open Home Page");
         driver.get(URL);
         Actions actions = new Actions(driver.getOriginalDriver());
+        Log4Test.info("Hover mouse on menu Household Appliances");
         actions.moveToElement(driver.findElement(BT));
         actions.perform();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Log4Test.info("Open subcategory Refrigerators");
         driver.findElement(FRIDGE).click();
     }
 
     public void filterFridgeBrand(String brand){
-        Log4Test.info("Filter product by brand");
+        Log4Test.info("Filter product by brand: " + brand);
         final By linkTextVar = By.linkText(String.format(linkText, brand));
         driver.findElement(linkTextVar).click();
+        Log4Test.info("Open sort menu");
         driver.findElement(SORT_MENU).click();
     }
 
@@ -50,7 +54,7 @@ public class RefrigeratorPage {
     }
 
     public boolean priceCompare() {
-        Log4Test.info("Price compare method start");
+        Log4Test.info("Price compare method is started");
         WebElement element = driver.findElement(PRICE_LIST);
         List<WebElement> price = element.findElements(PRICE);
         Integer firstPrice = strToInt(price.get(0).getText());
@@ -67,10 +71,13 @@ public class RefrigeratorPage {
     }
 
     public boolean countOfProduct(String inputData){
+        Log4Test.info("Execute method for counting product");
         final By countOfProduct = By.xpath(String.format(findText,inputData));
         if (driver.findElements(countOfProduct).size()>2) {
+            Log4Test.info("Number of product more than 2");
             return true;
         } else {
+            Log4Test.info("Number of product ;ess than 2");
             return false;
         }
     }

@@ -26,6 +26,7 @@ public class ProductPage {
         driver.findElement(SEARCH_BOX).clear();
         Log4Test.info("Find product: " + searchItem);
         driver.findElement(SEARCH_BOX).sendKeys(searchItem);
+        Log4Test.info("Click search button");
         driver.findElement(SEARCH_BUTTON).click();
         try {
             Thread.sleep(5000);
@@ -35,29 +36,38 @@ public class ProductPage {
     }
 
     public boolean comparePrice (){
+        Log4Test.info("Execute method to compare prices");
         driver.findElement(PRICE_BUTTON).click();
         if (driver.findElements(PRICE_COUNT).size() > 1){
+            Log4Test.info("More than one prices were found");
             return true;
         } else {
+            Log4Test.info("Number of prices equal to one");
             return false;
         }
     }
 
     public boolean isProductPresent (String searchItem) {
+        Log4Test.info("Execute method for verification of product presence");
         final By productPresence = By.xpath(String.format(findProduct,searchItem));
         if (driver.findElement(productPresence).isDisplayed()) {
+            Log4Test.info("Product " + searchItem + "was found");
             return true;
         } else {
+            Log4Test.info("Product " + searchItem + "wasn't found");
             return false;
         }
     }
 
     public boolean incorrectSearch () {
-       if (driver.findElement(INCORRECT_SEARCH).isDisplayed()){
-           return true;
-       } else {
-           return false;
-       }
+        Log4Test.info("Execute method for incorrect search");
+        if (driver.findElement(INCORRECT_SEARCH).isDisplayed()){
+            Log4Test.info("Search query was incorrect");
+            return true;
+        } else {
+            Log4Test.info("Search query was correct");
+            return false;
+        }
     }
 
 

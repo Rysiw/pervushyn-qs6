@@ -28,19 +28,26 @@ public class RegisterPage {
     }
 
     public void registerNewUser(String inputEmail, String inputName, String inputPassword, String inputPasswordRepeat){
-        Log4Test.info("Register New User: " + "E-mail: " + inputEmail + "Name: " + inputName + "Password: " + inputPassword );
+        Log4Test.info("Add new User wuth such data: " + "E-mail: " + inputEmail + "Name: " + inputName + "Password: " + inputPassword );
         driver.findElement(EMAIL).sendKeys(inputEmail);
         driver.findElement(NICK_NAME).sendKeys(inputName);
         driver.findElement(PASSWORD).sendKeys(inputPassword);
         driver.findElement(PASSWORD_REPEAT).sendKeys(inputPasswordRepeat);
+        Log4Test.info("Registering new User");
         driver.findElement(REGISTER_BUTTON).click();
     }
 
     public boolean successRegister(){
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Log4Test.info("Verify that Registration passed successful ");
-        if (driver.findElement(REG_SUCCESS).isDisplayed()) return true;
-        else return false;
+        if (driver.findElement(REG_SUCCESS).isDisplayed()){
+            Log4Test.info("Welcome message is present");
+            return true;
+        }
+        else {
+            Log4Test.info("Welcome message is absent");
+            return false;
+        }
     }
 
     public boolean isUserPresent(){
@@ -48,8 +55,11 @@ public class RegisterPage {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Log4Test.info("Verify if User exist");
         if (driver.findElements(ERROR).size() !=0){
+            Log4Test.info("Error message is appear. User with such input data is exist");
             return true;
+        }else {
+            Log4Test.info("Data for register new user is unique");
+            return false;
         }
-        return false;
     }
 }
